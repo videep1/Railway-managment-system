@@ -1,6 +1,4 @@
 from django.db import models
-
-
 from django.contrib.auth.models import AbstractUser
 import datetime
 import django.utils.timezone
@@ -44,10 +42,10 @@ class User(AbstractUser):
 class Security(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, default=2)
     id = models.IntegerField(primary_key=True)
+    
 
 
 class Staff(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, default=1)
     id = models.IntegerField(primary_key=True)
     train_no = models.ForeignKey(Train, on_delete=models.CASCADE, default=1007)
-
